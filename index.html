@@ -5,43 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./script.js" defer></script>
   </head>
   <body>
     <div class="calc">
-      <h1 class="calc__title">Calculator</h1>
+      <h1 class="calc__title">DK Calculator</h1>
       <div class="calc__body">
         <div class="calc__body-first-row">
-          <div class="calc__body-output"></div>
+          <div class="calc__body-output">
+            <div id="previousOutput" class="calc__body-previous"></div>
+            <div id="currentOutput" class="calc__body-current"></div>
+          </div>
           <button id="clearBtn" class="calc__body-clearBtn">C</button>
         </div>
         <div class="calc__body-other-rows">
-          <div class="calc__body-btn-container1">
-            <button class="calc__body-seven">7</button>
-            <button class="calc__body-eight">8</button>
-            <button class="calc__body-nine">9</button>
-            <button class="calc__body-divide">/</button>
+          <div class="calc__body-btn-container">
+            <button class="calc__body-seven calc__btn calc__btn-digits">
+              7
+            </button>
+            <button class="calc__body-eight calc__btn calc__btn-digits">
+              8
+            </button>
+            <button class="calc__body-nine calc__btn calc__btn-digits">
+              9
+            </button>
+            <button class="calc__body-divide calc__btn calc__btn-operators">
+              /
+            </button>
           </div>
-          <div class="calc__body-btn-container2">
-            <button class="calc__body-four">4</button>
-            <button class="calc__body-five">5</button>
-            <button class="calc__body-six">6</button>
-            <button class="calc__body-multiply">x</button>
+          <div class="calc__body-btn-container">
+            <button class="calc__body-four calc__btn calc__btn-digits">
+              4
+            </button>
+            <button class="calc__body-five calc__btn calc__btn-digits">
+              5
+            </button>
+            <button class="calc__body-six calc__btn calc__btn-digits">6</button>
+            <button class="calc__body-multiply calc__btn calc__btn-operators">
+              *
+            </button>
           </div>
-          <div class="calc__body-btn-container3">
-            <button class="calc__body-one">1</button>
-            <button class="calc__body-two">2</button>
-            <button class="calc__body-three">3</button>
-            <button class="calc__body-subtract">-</button>
+          <div class="calc__body-btn-container">
+            <button class="calc__body-one calc__btn calc__btn-digits">1</button>
+            <button class="calc__body-two calc__btn calc__btn-digits">2</button>
+            <button class="calc__body-three calc__btn calc__btn-digits">
+              3
+            </button>
+            <button class="calc__body-subtract calc__btn calc__btn-operators">
+              -
+            </button>
           </div>
-          <div class="calc__body-btn-container4">
-            <button class="calc__body-dot">.</button>
-            <button class="calc__body-zero">0</button>
-            <button class="calc__body-equals">=</button>
-            <button class="calc__body-add">+</button>
+          <div class="calc__body-btn-container">
+            <button class="calc__body-decimal calc__btn">.</button>
+            <button class="calc__body-zero calc__btn calc__btn-digits">
+              0
+            </button>
+            <button class="calc__body-equals calc__btn">=</button>
+            <button class="calc__body-add calc__btn calc__btn-operators">
+              +
+            </button>
           </div>
         </div>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
