@@ -77,6 +77,11 @@ function handleEquals() {
       result = Number(previousValue) - Number(currentValue);
       break;
     case "/":
+      if (currentValue == "0") {
+        currentValue = "";
+        currentOutput.textContent = "";
+        return alert("Not Divisible by Zero");
+      }
       result = Number(previousValue) / Number(currentValue);
       break;
     case "*":
