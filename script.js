@@ -41,18 +41,31 @@ clear.addEventListener("click", function () {
 
 function handleDigit(number) {
   let cleanNumber = number.trim();
+  let tempCurrentOutput = currentOutput.textContent;
+  let withDecimal = currentOutput.textContent + cleanNumber;
 
+  // Ignore leading zeroes & trailing zeroes
   if (
     cleanNumber === "0" &&
     !currentValue.includes(".") &&
-    currentValue.length === 1
+    currentValue.length === 1 &&
+    tempCurrentOutput === "0" &&
+    withDecimal !== "0."
   ) {
-    return; // Ignore leading zero
-  }
-
-  if (currentValue.length < 9) {
+    return;
+  } else if (
+    withDecimal !== "0." &&
+    currentValue.length === 1 &&
+    tempCurrentOutput === "0"
+  ) {
+    return;
+  } else if (currentValue.length < 9) {
     currentValue += cleanNumber;
   }
+
+  // if (currentValue.length < 9) {
+  //   currentValue += cleanNumber;
+  // }
 }
 
 function handleOperator(operator) {
