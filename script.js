@@ -5,12 +5,27 @@ const operators = document.querySelectorAll(".calc__btn-operators");
 const decimal = document.querySelector(".calc__body-decimal");
 const equals = document.querySelector(".calc__body-equals");
 
+const buttons = document.querySelectorAll(".calc__btn");
+
 const previousOutput = document.querySelector("#previousOutput");
 const currentOutput = document.querySelector("#currentOutput");
 
 let operatorValue = "";
 let previousValue = "";
 let currentValue = "";
+
+let intervalId;
+
+// Visibility Effect
+document.addEventListener("DOMContentLoaded", () => {
+  intervalId = setInterval(toggleVisibility, 1000);
+});
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    handleVisibilityHide();
+  });
+});
 
 digits.forEach((digit) => {
   digit.addEventListener("click", function (event) {
@@ -35,8 +50,9 @@ equals.addEventListener("click", () => {
   handleEquals();
 });
 
-clear.addEventListener("click", function () {
+clear.addEventListener("click", () => {
   handleClear();
+  handleVisibilityShow();
 });
 
 function handleDigit(number) {
@@ -62,10 +78,6 @@ function handleDigit(number) {
   } else if (currentValue.length < 9) {
     currentValue += cleanNumber;
   }
-
-  // if (currentValue.length < 9) {
-  //   currentValue += cleanNumber;
-  // }
 }
 
 function handleOperator(operator) {
@@ -137,6 +149,30 @@ function handleClear() {
   operatorValue = "";
   previousValue = "";
   currentValue = "";
-  previousOutput.textContent = "";
-  currentOutput.textContent = "";
+  previousOutput.textContent = "Result";
+  currentOutput.textContent = "0";
+}
+
+// Active Screen Output Show/Hide
+function toggleVisibility() {
+  previousOutput.style.display =
+    previousOutput.style.display === "none" ? "block" : "none";
+  currentOutput.style.display =
+    currentOutput.style.display === "none" ? "block" : "none";
+}
+
+function handleVisibilityShow() {
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+  intervalId = setInterval(toggleVisibility, 1000);
+}
+
+function handleVisibilityHide() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+  previousOutput.style.display = "block";
+  currentOutput.style.display = "block";
 }
