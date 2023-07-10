@@ -56,18 +56,26 @@ function handleDigit(number) {
 }
 
 function handleOperator(operator) {
+  let cleanOperator = operator.trim();
+
   if (operatorValue === "" && currentValue.length > 0) {
-    operatorValue = operator;
+    operatorValue = cleanOperator;
     previousValue = currentValue;
     currentValue = "";
+  } else if (
+    cleanOperator === "+" ||
+    cleanOperator === "-" ||
+    cleanOperator === "/" ||
+    cleanOperator === "*"
+  ) {
+    handleEquals();
+    handleOperator(cleanOperator);
   }
 }
 
 function handleEquals() {
   let result = 0;
   let finalResult = 0;
-  let cleanOperator = operatorValue.trim();
-  operatorValue = cleanOperator;
 
   switch (operatorValue) {
     case "+":
