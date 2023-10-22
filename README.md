@@ -1,3 +1,5 @@
+![MathWizard Logo Showcased](/assets/images/mathwizard.png "MathWizard")
+
 # Math Wizard
 
 ## A fully functional project showcasing a calculator with arithmetic operations and decimal calculations.
