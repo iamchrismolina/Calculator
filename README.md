@@ -1,4 +1,4 @@
-![MathWizard Logo Showcased](/assets/images/mathwizard.png "MathWizard")
+![MathWizard Logo Showcased](./public/assets/images/mathwizard.png "MathWizard")
 
 # Math Wizard
 
